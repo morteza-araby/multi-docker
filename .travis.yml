@@ -21,8 +21,8 @@ after_success:
   - docker push eraarby/multi-server
   - docker push eraarby/multi-worker
 
-deploy:
-  provider: azure_web_apps
-  username: "multidocker\$multidocker"
-  password: "AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3"
-  site: "multidocker"
+# deploy:
+#   provider: azure_web_apps
+#   username: "multidocker\$multidocker"
+#   password: "AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3"
+#   site: "multidocker"
