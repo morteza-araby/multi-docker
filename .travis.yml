@@ -1,0 +1,28 @@
+sudo: required
+services:
+  - docker
+
+# before_install:
+#   - docker build -t eraarby/react-test -f ./client/Dockerfile.dev ./client
+
+# script:
+#   - docker run eraarby/react-test npm run test -- --converage
+
+after_success:
+  - docker build -t eraarby/multi-client ./client
+  - docker build -t eraarby/multi-nginx ./nginx
+  - docker build -t eraarby/multi-server ./server
+  - docker build -t eraarby/mutlti-worker ./worker
+# Login to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# Take these images and push them to docker hub
+  - docker push eraarby/multi-client
+  - docker push eraarby/multi-nginx
+  - docker push eraarby/multi-server
+  - docker push eraarby/multi-worker
+
+deploy:
+  provider: azure_web_apps
+  username: "multidocker\$multidocker"
+  password: "AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3"
+  site: "multidocker"
