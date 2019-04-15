@@ -13,7 +13,7 @@ before_install:
   - docker build -t eraarby/multi-client ./client
   - docker build -t eraarby/multi-nginx ./nginx
   - docker build -t eraarby/multi-server ./server
-  - docker build -t eraarby/mutlti-worker ./worker
+  - docker build -t eraarby/multi-worker ./worker
 # Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push them to docker hub
