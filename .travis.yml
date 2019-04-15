@@ -24,8 +24,6 @@ before_install:
 
 deploy:
   provider: azure_web_apps
-  username: multidocker\$multidocker       # If AZURE_WA_USERNAME isn't set
-  password: AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3   # If AZURE_WA_PASSWORD isn't set
-  site: multidocker       # If AZURE_WA_SITE isn't set
-  # slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
+  verbose: true
+  # # slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
 
