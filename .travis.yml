@@ -22,8 +22,8 @@ before_install:
   - docker push eraarby/multi-server
   - docker push eraarby/multi-worker
 
-deploy:
-  provider: azure_web_apps
-  verbose: true
-  # # slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
+# deploy:
+#   provider: azure_web_apps
+#   verbose: true
+#   # # slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
 
