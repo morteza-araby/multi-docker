@@ -13,9 +13,9 @@ after_success:
   - docker build -t eraarby/multi-nginx ./nginx
   - docker build -t eraarby/multi-server ./server
   - docker build -t eraarby/mutlti-worker ./worker
-
+# Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
+# Take these images and push them to docker hub
   - docker push eraarby/multi-client
   - docker push eraarby/multi-nginx
   - docker push eraarby/multi-server
