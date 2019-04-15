@@ -2,11 +2,11 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t eraarby/react-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#   - docker build -t eraarby/react-test -f ./client/Dockerfile.dev ./client
 
-script:
-  - docker run eraarby/react-test npm run test -- --converage
+# script:
+#   - docker run eraarby/react-test npm run test -- --converage
 
 after_success:
   - docker build -t eraarby/multi-client ./client
@@ -21,8 +21,10 @@ after_success:
   - docker push eraarby/multi-server
   - docker push eraarby/multi-worker
 
-# deploy:
-#   provider: azure_web_apps
-#   username: "multidocker\$multidocker"
-#   password: "AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3"
-#   site: "multidocker"
+deploy:
+  provider: azure_web_apps
+  username: multidocker\$multidocker       # If AZURE_WA_USERNAME isn't set
+  password: AyShsTNRYak8wGytdgjxheZYCDkif7tYfD1yDG116JMg4879wQGpqwScstC3   # If AZURE_WA_PASSWORD isn't set
+  site: multidocker       # If AZURE_WA_SITE isn't set
+  # slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
+
