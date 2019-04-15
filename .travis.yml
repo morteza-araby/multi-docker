@@ -8,7 +8,8 @@ services:
 # script:
 #   - docker run eraarby/react-test npm run test -- --converage
 
-after_success:
+# after_success:
+before_install:
   - docker build -t eraarby/multi-client ./client
   - docker build -t eraarby/multi-nginx ./nginx
   - docker build -t eraarby/multi-server ./server
