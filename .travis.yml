@@ -17,10 +17,10 @@ after_success:
 # Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push them to docker hub
-  - docker push eraarby/multi-client
-  - docker push eraarby/multi-nginx
-  - docker push eraarby/multi-server
-  - docker push eraarby/multi-worker
+  - docker push eraarby/ma:multi-client
+  - docker push eraarby/ma:multi-nginx
+  - docker push eraarby/ma:multi-server
+  - docker push eraarby/ma:multi-worker
 
 # deploy:
 #   provider: azure_web_apps
