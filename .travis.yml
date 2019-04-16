@@ -10,17 +10,17 @@ script:
 
 after_success:
 # before_install:
-  - docker build -t eraarby/ma:ulti-client ./client
-  - docker build -t eraarby/ma:multi-nginx ./nginx
-  - docker build -t eraarby/ma:multi-server ./server
-  - docker build -t eraarby/ma:multi-worker ./worker
+  - docker build -t eraarby/multi-client ./client
+  - docker build -t eraarby/multi-nginx ./nginx
+  - docker build -t eraarby/multi-server ./server
+  - docker build -t eraarby/multi-worker ./worker
 # Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push them to docker hub
-  - docker push eraarby/ma:multi-client
-  - docker push eraarby/ma:multi-nginx
-  - docker push eraarby/ma:multi-server
-  - docker push eraarby/ma:multi-worker
+  - docker push eraarby/multi-client
+  - docker push eraarby/multi-nginx
+  - docker push eraarby/multi-server
+  - docker push eraarby/multi-worker
 
 # deploy:
 #   provider: azure_web_apps
