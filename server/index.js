@@ -35,9 +35,9 @@ const redisPublisher = redisClient.duplicate();
 
 // Express route handlers
 
-app.get('/', (req, res) => {
-  res.send('Hi there World');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hi');
+// });
 
 app.get('/values/all', async (req, res) => {
   const values = await pgClient.query('SELECT * from values');
@@ -57,7 +57,7 @@ app.get('/values/current', async (req, res) => {
 
 app.post('/values', async (req, res) => {
   const index = req.body.index;
-
+  console.log('#### posted from client: ', index);
   if (parseInt(index) > 40) {
     return res.status(422).send('Index too high');
   }
